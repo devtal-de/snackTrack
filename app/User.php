@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -28,4 +29,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function purchases ()
+    {
+        return $this->hasMany('App\Purchase');
+    }
+
+    public function spentMoneySoFar ()
+    {
+        $user = Auth::user();
+        $sum = 0;
+        foreach( $user->purchases as $purchase ){
+            $sum += $purchase->snack->price;
+        }
+
+        return $sum;
+    }
+
+
 }

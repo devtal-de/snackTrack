@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSnackTable extends Migration
+class CreateDonationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateSnackTable extends Migration
      */
     public function up()
     {
-        Schema::create('snacks', function($table) {
+        Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')
-                ->index();
-            $table->integer('weight');
-            $table->integer('price');
-            $table->text('description');
-            $table->string('image');
+            $table->integer('user_id')
+                ->unsigned();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->integer('amount');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -33,6 +34,6 @@ class CreateSnackTable extends Migration
      */
     public function down()
     {
-        Schema::drop('snacks');
+        Schema::dropIfExists('donations');
     }
 }

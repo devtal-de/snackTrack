@@ -17,8 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/snacks', [ 'as' => 'snacks', 'uses' => 'HomeController@index' ]);
+Route::get('/my-purchases', [ 'as' => 'my.purchases', 'uses' => 'HomeController@purchases' ]);
+Route::get('/images/{name}', 'ImageController@show');
 
+Route::group(['prefix' => 'snack'], function () {
+    Route::get('{id}/buy', 'SnackController@buy');
+});
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('snacks', 'AdminController@snacks');
+    Route::get('snacks', [ 'as' => 'admin.snacks', 'uses' => 'AdminController@snacks' ]);
+    Route::get('snack/create', [ 'as' => 'admin.create.snack', 'uses' => 'AdminController@createSnack' ]);
+    Route::post('snack/create', [ 'as' => 'admin.store.snack', 'uses' => 'AdminController@storeSnack' ]);
 });

@@ -19,10 +19,10 @@
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
-        <li><a href="home"><span class="glyphicon glyphicon-shopping-cart"></span> Snacks</a></li>
+        <li><a href="/snacks"><span class="glyphicon glyphicon-cutlery"></span> Snacks</a></li>
         @if( Auth::check() )
           @if( Auth::user()->hasRole('admin') )
-          <li><a href="admin/dashboard"><span class="glyphicon glyphicon-dashboard"></span> Admindashboard</a></li>
+          <li><a href="{{ route('admin.snacks') }}"><span class="glyphicon glyphicon-dashboard"></span> Admindashboard</a></li>
           @endif
         @endif
       </ul>
@@ -41,9 +41,13 @@
 
             <ul class="dropdown-menu" role="menu">
               <li>
+                <a href="{{ route('my.purchases') }}"><span class="glyphicon glyphicon-shopping-cart"></span> My Purchases</a>
+              </li>
+              <li class="divider"></li>
+              <li>
                 <a href="{{ url('/logout') }}"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                  Logout
+                  <span class="glyphicon glyphicon-log-out"></span> Logout
                 </a>
 
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

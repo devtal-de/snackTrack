@@ -11,10 +11,24 @@
     <hr/>
     <div class="row">
       <div class="col-md-6">
-        <p><a class="btn btn-default" href="">new Snack</a></p>
+        <p><a class="btn btn-default" href="{{ route('admin.create.snack') }}">new Snack</a></p>
         <hr/>
         <ul class="list-group">
-          <li class="list-group-item">Dummy Snack</li>
+          @foreach($snacks as $snack)
+            <li class="row list-group-item">
+              <div class="col-sm-6">
+                <h3>{{ $snack->name }}</h3><hr/>
+                <div class="col-sm-6">Gewicht:</div>
+                <div class="col-sm-6"><b>{{ $snack->weight }}g</b></div>
+                <hr/>
+                <div class="col-sm-6">Preis:</div>
+                <div class="col-sm-6"><b>{{ $snack->price }}€</b></div>
+              </div>
+              <div class="col-sm-6">
+                <img src="{{ url($snack->image) }}" width="100%"></img>
+              </div>
+            </li>
+          @endforeach
         </ul>
       </div>
     </div>

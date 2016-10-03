@@ -16,6 +16,7 @@
          'csrfToken' => csrf_token(),
      ]); ?>
     </script>
+    @yield('head')
   </head>
   <body>
 
@@ -24,5 +25,8 @@
     @yield('content')
 
     <script src="/js/app.js"></script>
+
+    @yield('foot')
+
   </body>
 </html>
