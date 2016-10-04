@@ -24,8 +24,9 @@
                 <div class="col-sm-6">Preis:</div>
                 <div class="col-sm-6"><b>{{ $snack->euro }},{{ $snack->cent }} €</b></div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-6 text-right">
                 <img src="{{ url($snack->image) }}" width="100%"></img>
+                <a href="{{ route('admin.edit.snack', $snack->id) }}">[edit]</a>
               </div>
             </li>
           @endforeach

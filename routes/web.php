@@ -28,4 +28,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('snacks', [ 'as' => 'admin.snacks', 'uses' => 'AdminController@snacks' ]);
     Route::get('snack/create', [ 'as' => 'admin.create.snack', 'uses' => 'AdminController@createSnack' ]);
     Route::post('snack/create', [ 'as' => 'admin.store.snack', 'uses' => 'AdminController@storeSnack' ]);
+    Route::get('snack/{id}/edit', [ 'as' => 'admin.edit.snack', 'uses' => 'AdminController@editSnack' ]);
+    Route::post('snack/{id}/edit', [ 'as' => 'admin.update.snack', 'uses' => 'AdminController@updateSnack' ]);
 });

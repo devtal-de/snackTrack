@@ -35,7 +35,7 @@
               <b>Price :</b>
             </div>
             <div class="col-sm-8">
-              {{ $snack->snack->price }} €
+            {{ $snack->snack->euro }},{{ $snack->snack->cent }} €
             </div>
           </li>
         @endforeach

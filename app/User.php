@@ -40,10 +40,11 @@ class User extends Authenticatable
         $user = Auth::user();
         $sum = 0;
         foreach( $user->purchases as $purchase ){
-            $sum += $purchase->snack->price;
+            $sum += $purchase->snack->euro * 100;
+            $sum += $purchase->snack->cent;
         }
 
-        return $sum;
+        return $sum / 100;
     }
 
 
