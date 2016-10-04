@@ -1,3 +1,7 @@
-# Snack-Vendor
+# SnackTrack
 
-Snack-Vendor dient als einfache Verwaltung für spendenbasiete ("fair use") Systeme.
+Track your snacks! (and your dontaions)
+
+## Authors
+
+Marc Giersch <marc.giersch@innoq.com>

@@ -2,8 +2,6 @@
 
 @section('head')
 
-  
-  
 @stop
 
 @section('content')
@@ -21,17 +19,19 @@
           <input class="form-control" id="name" name="name" type="text" placeholder="z.B. Snickers" required></input>
         </div>
         <div class="row">
-          <div class="form-group col-md-6">
-            <label for="weight">Gewicht in Gramm:</label>
+          <div class="form-group col-md-3">
+            <label for="weight">Weight:</label>
             <div class="input-group">
               <input class="form-control" id="weight" name="weight" type="number" min="0" placeholder="0" required></input>
               <span class="input-group-addon">g</span>
             </div>
           </div>
-          <div class="form-group col-md-6">
-            <label for="price">Preis:</label>
+          <div class="form-group col-md-9">
+            <label for="euro">Price:</label>
             <div class="input-group">
-              <input class="form-control" id="price" name="price" type="number" min="0" placeholder="0" required>
+              <input class="form-control" id="euro" name="euro" type="number" min="0" placeholder="0" value=0 required>
+              <span class="input-group-addon">,</span>
+              <input class="form-control" id="cent" name="cent" type="number" min="0" placeholder="0" value=0 required>
               <span class="input-group-addon">€</span>
             </div>
           </div>

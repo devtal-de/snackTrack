@@ -32,20 +32,23 @@ class AdminController extends Controller
         $snack = new Snack();
         $snack->name = $request->name;
         $snack->weight = $request->weight;
-        $snack->price = $request->price;
-        $snack->description = '...';
-        $snack->image = '-';
+        $snack->euro = $request->euro;
+        $snack->cent = $request->cent;
+        $snack->description = 'This is a snack.';
+        $snack->image = 'images/no_image.png';
 
         $snack->save();
 
-        if($request->file('pictures.0')->isValid()) {
-            $path = $request->file('pictures.0')->storeAs('images', 'snack_' . $snack->id . '.jpg', 'local');
-            $snack->image = $path;
+        if ($request->file('pictures') != '') {
+            if($request->file('pictures.0')->isValid()) {
+                $path = $request->file('pictures.0')->storeAs('images', 'snack_' . $snack->id . '.jpg', 'local');
+                $snack->image = $path;
 
-            $snack->save();
+                $snack->save();
+            }
         }
 
-        return $snack;
+        return redirect()->route('admin.snacks');
     }
 
 }

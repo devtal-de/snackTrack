@@ -22,7 +22,7 @@
                 <div class="col-sm-6"><b>{{ $snack->weight }}g</b></div>
                 <hr/>
                 <div class="col-sm-6">Preis:</div>
-                <div class="col-sm-6"><b>{{ $snack->price }}€</b></div>
+                <div class="col-sm-6"><b>{{ $snack->euro }},{{ $snack->cent }} €</b></div>
               </div>
               <div class="col-sm-6">
                 <img src="{{ url($snack->image) }}" width="100%"></img>

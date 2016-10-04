@@ -18,7 +18,8 @@ class CreateSnackTable extends Migration
             $table->string('name')
                 ->index();
             $table->integer('weight');
-            $table->integer('price');
+            $table->integer('euro');
+            $table->integer('cent');
             $table->text('description');
             $table->string('image');
             $table->timestamps();

@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading text-center">..::Welcome {{ Auth::user()->name }}::..</div>
+        <div class="panel-heading text-center"><h3>..::[Welcome {{ Auth::user()->name }}]::..</h3></div>
 
         <div class="panel-body text-center">
           <p>Select some Snacks:
@@ -32,7 +32,7 @@
                     <hr/>
                     <img src="{{ $snack->image }}" ></img>
                     <p><small>{{ $snack->weight }}g</small></p>
-                    <h3 class="text-right">{{ $snack->price }}€</h3>
+                    <h3 class="text-right">{{ $snack->euro }},{{ $snack->cent }} €</h3>
                   </a>
                 </li>
               @endforeach
