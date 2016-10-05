@@ -16,6 +16,15 @@
          'csrfToken' => csrf_token(),
      ]); ?>
     </script>
+
+    @if( Auth::check() )
+      <style>
+       .mini_saldo {
+           color: @if( Auth::user()->saldo() > 0 ) green @else red @endif;
+       }
+      </style>
+    @endif
+
     @yield('head')
   </head>
   <body>

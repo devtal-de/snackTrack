@@ -22,7 +22,8 @@ class CreateDonationsTable extends Migration
                 ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->integer('amount');
+            $table->integer('euro');
+            $table->integer('cent');
             $table->timestamps();
         });
     }

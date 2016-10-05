@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/snacks', [ 'as' => 'snacks', 'uses' => 'HomeController@index' ]);
 Route::get('/my-purchases', [ 'as' => 'my.purchases', 'uses' => 'HomeController@purchases' ]);
+Route::get('/my-donations', [ 'as' => 'my.donations', 'uses' => 'HomeController@donations' ]);
+Route::post('/my-donations', [ 'as' => 'donate', 'uses' => 'HomeController@donate' ]);
 Route::get('/images/{name}', 'ImageController@show');
 
 Route::group(['prefix' => 'snack'], function () {

@@ -47,5 +47,21 @@ class User extends Authenticatable
         return $sum / 100;
     }
 
+    public function donations ()
+    {
+        return $this->hasMany('App\Donation');
+    }
+
+    public function saldo ()
+    {
+        $user = Auth::user();
+        $donations = 0;
+        foreach( $user->donations as $donation ) {
+            $donations += $donation->euro * 100;
+            $donations += $donation->cent;
+        }
+
+        return ($donations / 100) - $user->spentMoneySoFar();
+    }
 
 }
