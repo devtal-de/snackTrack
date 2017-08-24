@@ -28,7 +28,7 @@ class SnackController extends Controller
 
         $user->purchases()->save($purchase);
 
-        return redirect()->route('snacks'); #$user->name . ' kauft ' . $snack->name . ' für ' . $snack->price . ' €';
+        return redirect()->route('snacks');
     }
 
 }

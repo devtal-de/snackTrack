@@ -3,7 +3,7 @@
 @section('head')
 
   <style>
-   .snack { max-height: 350px; }
+   .snack { height: 350px; }
    img { max-width: 100%; height: auto; max-height: 150px; }
    .snack > a {
        text-decoration: none !important;
@@ -26,7 +26,7 @@
           <p>Select some Snacks:
             <ul class="list-group">
               @foreach( $snacks as $snack )
-                <li class="list-group-item col-xs-4 snack">
+                <li class="list-group-item col-sm-4 snack">
                   <a href="/snack/{{ $snack->id }}/buy">
                     <h3>{{ $snack->name }}</h3>
                     <hr/>
