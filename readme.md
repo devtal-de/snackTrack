@@ -1,6 +1,6 @@
 # SnackTrack
 
-Track your snacks! (and your dontaions)
+Track your snacks! (and your donations)
 
 ## Authors
 
