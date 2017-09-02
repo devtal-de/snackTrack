@@ -41,6 +41,9 @@
 
             <ul class="dropdown-menu" role="menu">
               <li>
+                <a href="/profile"><span class="glyphicon glyphicon-profile"></span>Profile</a>
+              </li>
+              <li>
                 <a href="{{ route('my.purchases') }}"><span class="glyphicon glyphicon-shopping-cart"></span> My Purchases</a>
               </li>
               <li>
@@ -53,7 +56,7 @@
                   <span class="glyphicon glyphicon-log-out"></span> Logout
                 </a>
 
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
                 </form>
               </li>

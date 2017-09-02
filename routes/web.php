@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout')->name('logout');
+Route::get('/profile', ['as' => 'profile', 'uses' => 'HomeController@profile' ]);
+Route::post('/profile', ['as' => 'profile', 'uses' => 'HomeController@updateProfile' ]);
 Route::get('/snacks', [ 'as' => 'snacks', 'uses' => 'HomeController@index' ]);
 Route::get('/my-purchases', [ 'as' => 'my.purchases', 'uses' => 'HomeController@purchases' ]);
 Route::get('/my-donations', [ 'as' => 'my.donations', 'uses' => 'HomeController@donations' ]);
@@ -26,7 +30,7 @@ Route::get('/images/{name}', 'ImageController@show');
 Route::group(['prefix' => 'snack'], function () {
     Route::get('{id}/buy', 'SnackController@buy');
 });
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function () {
     Route::get('snacks', [ 'as' => 'admin.snacks', 'uses' => 'AdminController@snacks' ]);
     Route::get('snack/create', [ 'as' => 'admin.create.snack', 'uses' => 'AdminController@createSnack' ]);
     Route::post('snack/create', [ 'as' => 'admin.store.snack', 'uses' => 'AdminController@storeSnack' ]);

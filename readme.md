@@ -4,4 +4,4 @@ Track your snacks! (and your dontaions)
 
 ## Authors
 
-Marc Giersch <marc.giersch@innoq.com>
+undermink <undermink@devtal.de>

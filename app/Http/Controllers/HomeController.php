@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use App\Snack;
 use App\Donation;
 use Auth;
@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth.basic');
+        $this->middleware('auth');
     }
 
     /**
@@ -53,6 +53,26 @@ class HomeController extends Controller
 
         $donation->save();
         return redirect()->route('my.donations');
+    }
+
+    public function profile ()
+    {
+        return view('user.profile', [ 'user' => Auth::user() ]);
+    }
+
+    public function updateProfile (Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'min:6|max:128|confirmed'
+        ]);
+
+        $user = Auth::user();
+
+        if($request->password != '') {
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
+        return '<h1>Successfully changed your password</h1><h3><a href="/">back</h3>';
     }
 
 }
